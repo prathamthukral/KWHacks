@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="C:/Users/prath/Pictures/doctor_icon.jpg" />
+	<title>Patient's info</title>
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<meta charset=utf-8 />
+
+	<script src="js\formfunctions.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/formStyles.css">
+</head>
+<body>
+	<!--Navbar-->
+	<nav class='navbar navbar-default'>
+		<div class="navbar-header">
+			<ul class="nav navbar-nav">
+        		<li class="active"><a href="#">Form<span class="sr-only">(current)</span></a></li>
+        		<li><a href="html/aboutPage.html">About</a></li>
+        	</ul>
+		</div>
+	</nav>
+
+	<h1>Patient's Information:</h1>
+	<form action="formValues.php" method="POST">
+  <fieldset>
+    <legend>Add to log</legend>
+    <p>
+      Message:
+      <textarea name="message"></textarea>
+    </p>
+    <p>
+      <input type="submit" value="SAVE" />
+    </p>
+  </fieldset>
+</form>
+	
+
+	<!--<button onclick="dataFunction()">Submit</button>-->
+	<p id="instructions">Check the 'console' to see the results. Right click, and press inspect</p>
+</body>
+</html>

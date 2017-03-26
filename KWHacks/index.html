@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="googlebot" content="noindex, nofollow">
+	<script type="text/javascript" src="/js/lib/dummy.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/result-light.css">
+	<link rel="stylesheet" type="text/css" href="styles/formStyles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Patient Info</title>
+	<script type='text/javascript'>
+		window.onload=function(){
+			(function() {
+				var textFile = null,
+	    		makeTextFile = function(text) {
+	        	var data = new Blob([text], {
+	            	type: 'text/plain'
+	        	});
+	        if (textFile !== null) {
+	            window.URL.revokeObjectURL(textFile);
+	        }
+
+	        textFile = window.URL.createObjectURL(data);
+
+	        return textFile;
+	    };
+
+
+    var create = document.getElementById('create'),
+        namebox = document.getElementById('namebox'),
+        agebox = document.getElementById('agebox'),
+        genderbox = document.getElementById('genderbox');
+
+    create.addEventListener('click', function() {
+        var link = document.getElementById('downloadlink');
+        var textOut = "";
+        
+        if (namebox.value!=""){
+        	textOut+=namebox.value+"~";
+        	var linkDown = namebox.value+".txt";
+        }
+        else{
+        	textOut+="null~";
+        	var linkDown = "noName.txt";
+        }
+        
+        if(agebox.value!=""){
+        	textOut+=agebox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(genderbox.value!=""){
+        	textOut+=genderbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(weightbox.value!=""){
+        	textOut+=weightbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(heightbox.value!=""){
+        	textOut+=heightbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(birthbox.value!=""){
+        	textOut+=birthbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(immunizationbox.value!=""){
+        	textOut+=immunizationbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(allergiesbox.value!=""){
+        	textOut+=allergiesbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(symptomsbox.value!=""){
+        	textOut+=symptomsbox.value+"~";
+        }
+        else{
+        	textOut+="null~";
+        }
+        
+        if(concernsbox.value!=""){
+        	textOut+=concernsbox.value;
+        }
+        else{
+        	textOut+="null";
+        }
+        link.download=linkDown;
+        link.href = makeTextFile(textOut);
+        link.style.display = 'block';
+        var downButton = document.getElementById('downButton');
+    	downButton.style.display = 'block';
+    }, false);
+	})();
+}
+</script> 
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<ul class="nav navbar-nav">
+	    		<li class="active"><a href="#">Form<span class="sr-only">(current)</span></a></li>
+	    		<li><a href="html/aboutPage.html">About</a></li>
+	    	</ul>
+		</div>
+	</nav>
+
+	<h1 class="jumbotron">Patient Form</h1>
+	
+	<div class="container">
+		<input id="namebox" class="input" placeholder="Name"><br>
+		<input id="agebox" placeholder="Age"><br>
+		<input id="genderbox" placeholder="Gender"><br>
+		<input id="weightbox" placeholder="Weight"><br>
+		<input id="heightbox" placeholder="Height"><br>
+		<input id="birthbox" placeholder="Birth Date"><br>
+		<input id="immunizationbox" placeholder="Immunization"><br>
+		<input id="allergiesbox" placeholder="Allergies"><br>
+		<input id="symptomsbox" placeholder="Symptoms"><br>
+		<input id="concernsbox" placeholder="Concerns"><br>
+		<button id="create"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Create file</button>
+		<br>
+		<br>
+	</div>
+
+	<button class="btn container" id="downButton" style="display: none;"><a download="info.txt" id="downloadlink" style="display: none; text-decoration: none;"><span class="glyphicon glyphicon-download" aria-hidden="true"></span>  Download</a></button>
+	<br><br>
+
+  
+	<script>
+	if (window.parent && window.parent.parent){
+	    window.parent.parent.postMessage(["resultsFrame", {
+	      height: document.body.getBoundingClientRect().height,
+	      slug: "None"}], "*")
+		}
+	</script>
+</body>
+</html>
